@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>+ Sinergia 2023</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+        nav {
+            text-align: center;
+            background-color: #444;
+            padding: 10px;
+        }
+        nav button {
+            padding: 10px 20px;
+            margin: 5px;
+            background-color: #555;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .card {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            width: 300px;
+            display: inline-block;
+        }
+        .flip-card {
+            background-color: transparent;
+            width: 300px;
+            height: 300px;
+            float: left;
+            border: 1px solid #f1f1f1;
+            perspective: 1000px; 
+            }
+
+            .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+            }
+
+            .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+            }
+
+            .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden; 
+            backface-visibility: hidden;
+            }
+
+          
+            .flip-card-front {
+            background-color: #bbb;
+            color: black;
+            }
+
+    
+            .flip-card-back {
+            background-color: dodgerblue;
+            color: white;
+            transform: rotateY(180deg);
+            }
+            ul{
+                list-style: none;
+            }
+            ul li{
+                display: inline;
+            }
+            .Salud{
+                background-color: #4CAF50;
+            }
+            .Sociedad{
+                background-color: #2196F3;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>+ Sinergia 2023</h1>
+    </header>
+    <nav>
+        <button onclick="mostrarCategoria('Sociedad')">Sociedad</button>
+        <button onclick="mostrarCategoria('Negocios')">Negocios</button>
+        <button onclick="mostrarCategoria('Arte')">Arte</button>
+        <button onclick="mostrarCategoria('Salud')">Salud</button>
+        <button onclick="mostrarTodos()">Todos</button>
+    </nav>
+    <div id="resultado">
+        <!-- Aquí se mostrarán las tarjetas -->
+    </div>
+
+
+ <script>
+     // Simula los datos del archivo JSON
+     var datos = [
+    {
+        "Nombre": "+Salud",
+        "Slogan": "\"Sistema de turnos",
+        "Descripcion": " historias clínicas y estadísticas para médicos\"",
+        "Categoria": "Salud",
+        "Integrantes": [
+                        "Nadien L.",
+                        "Juliana P.",
+                        null,
+                        null,
+                        null,
+                        null
+    ],
+        "Orientación": null,
+        "Sinergizado": null,
+        "Id\r": "Informática"
+    },
+    {
+        "Nombre": "Green Grin",
+        "Slogan": "epigrafe grin grin",
+        "Descripcion": "Descripción del proyecto sinergizado",
+        "Categoria": "Sociedad",
+        "Integrantes": [
+                    "Maia S.",
+                    "Tami S.",
+                    "Luciana W.",
+                    null,
+                    null,
+                    null,
+                ],
+        "Orientación": null,
+        "Sinergizado": null,
+        "Id\r": "Informática - Gesión Almagro"
+    }
+];
+
+     // Función para mostrar datos de una categoría
+          // Función para mostrar datos de una categoría
+          function mostrarCategoria(categoria) {
+            var resultadoDiv = document.getElementById("resultado");
+            resultadoDiv.innerHTML = ""; // Limpiar contenido anterior
+
+            var categoriaData = datos.filter(function(item) {
+                return item.Categoria === categoria;
+            });
+
+            if (categoriaData.length > 0) {
+                categoriaData.forEach(function(item) {
+                var card = document.createElement("div");
+                card.classList.add("flip-card");
+                card.innerHTML = `
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">   
+                            <div class=${categoria}>
+                                <img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;">
+                            </div>
+                        <h1>${item.Nombre}</h1>
+                        <p>${item.Slogan}</p>
+                        <p>We love that guy</p>
+                        </div>
+                        <div class="flip-card-back">
+                        <h1>J${item.Nombre}</h1>
+                        <p>${item.Descripcion}</p>
+                        <ul>
+                            ${item.Integrantes.map(function(integrante) {
+                                if (integrante !== null) {
+                                    return `<li>${integrante}</li>`;
+                                } else {
+                                    return ''; // No mostrar integrantes null
+                                }
+                            }).join('')}
+                        </ul>
+                        <p>We love that guy</p>
+                        </div>
+                    </div>
+                `
+                    resultadoDiv.appendChild(card);
+                });
+            } else {
+                resultadoDiv.innerHTML = "<p>No hay datos disponibles para esta categoría.</p>";
+            }
+        }
+
+        // Función para mostrar todos los proyectos
+        function mostrarTodos() {
+            var resultadoDiv = document.getElementById("resultado");
+            resultadoDiv.innerHTML = ""; // Limpiar contenido anterior
+
+            datos.forEach(function(item) {
+                var card = document.createElement("div");
+                var card = document.createElement("div");
+                card.classList.add("flip-card");
+                card.innerHTML = `
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class=${item.Categoria}>
+                                <img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;">
+                            </div>
+                        <h1>J${item.Nombre}</h1>
+                        <p>${item.Slogan}</p>
+                        <p>We love that guy</p>
+                        </div>
+                        <div class="flip-card-back">
+                        <h1>${item.Nombre}</h1>
+                        <p>${item.Descripcion}</p>
+                        <ul>
+                            ${item.Integrantes.map(function(integrante) {
+                                if (integrante !== null) {
+                                    return `<li>${integrante}, </li>`;
+                                } else {
+                                    return ''; // No mostrar integrantes null
+                                }
+                            }).join('')}
+                        </ul>
+                        <p>Categoria: ${item.Categoria}</p>
+                        </div>
+                    </div>
+                `
+                resultadoDiv.appendChild(card);
+            });
+        }
+    </script>
+</body>
+</html>

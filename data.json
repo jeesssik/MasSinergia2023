@@ -1,0 +1,38 @@
+[
+    {
+        "Nombre": "+Salud",
+        "Slogan": "\"Sistema de turnos",
+        "Descripcion": " historias clínicas y estadísticas para médicos\"",
+        "Categoria": "salud",
+        "Integrantes": "Ciencia; Salud y Medio Ambiente",
+        "Integrante 1": "\"Nadien L.",
+        "Integrante 2": " Juliana P.\"",
+        "Integrante 3": " LEWIT NADINE",
+        "Integrante 4": " PANSOWY FURNO JULIANA",
+        "Integrante 5": null,
+        "Integrante 6": null,
+        "Integrante 7": null,
+        "Integrante 8": null,
+        "Orientación": null,
+        "Sinergizado": null,
+        "Id\r": "Informática"
+    },
+    {
+        "Nombre": "Green Grin",
+        "Slogan": "epigrafe grin grin",
+        "Descripcion": "Descripción del proyecto sinergizado",
+        "Categoria": "Servicios a la Sociedad",
+        "Integrantes": "\"Maia S.",
+        "Integrante 1": " Tami S.",
+        "Integrante 2": " Luciana W.\"",
+        "Integrante 3": " SZMEDRA MAIA CAROLINA",
+        "Integrante 4": " WAREMKRAUT LUCIANA",
+        "Integrante 5": " SCHNAIDERMAN TAMI VIOLETA",
+        "Integrante 6": null,
+        "Integrante 7": null,
+        "Integrante 8": null,
+        "Orientación": null,
+        "Sinergizado": null,
+        "Id\r": "Informática - Gesión Almagro"
+    }
+]
