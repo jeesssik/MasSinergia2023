@@ -26,20 +26,15 @@
             border: none;
             cursor: pointer;
         }
-        .card {
-            border: 1px solid #ccc;
-            padding: 10px;
-            margin: 10px;
-            width: 300px;
-            display: inline-block;
-        }
+        
         .flip-card {
             background-color: transparent;
             width: 300px;
             height: 300px;
             float: left;
-            border: 1px solid #f1f1f1;
             perspective: 1000px; 
+            margin: 20px;
+            
             }
 
             .flip-card-inner {
@@ -49,6 +44,8 @@
             text-align: center;
             transition: transform 0.8s;
             transform-style: preserve-3d;
+            border: 5px solid rgba(0, 0, 0, 0.366);
+            border-radius: 5%;
             }
 
             .flip-card:hover .flip-card-inner {
@@ -71,7 +68,7 @@
 
     
             .flip-card-back {
-            background-color: dodgerblue;
+            
             color: white;
             transform: rotateY(180deg);
             }
@@ -162,13 +159,13 @@
                     <div class="flip-card-inner">
                         <div class="flip-card-front">   
                             <div class=${categoria}>
-                                <img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;">
+                                <img src="git.png" alt="Avatar" style="width:150px;height:150px;">
                             </div>
                         <h1>${item.Nombre}</h1>
                         <p>${item.Slogan}</p>
                         <p>We love that guy</p>
                         </div>
-                        <div class="flip-card-back">
+                        <div class="flip-card-back ${item.Categoria}">
                         <h1>J${item.Nombre}</h1>
                         <p>${item.Descripcion}</p>
                         <ul>
@@ -204,13 +201,13 @@
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
                             <div class=${item.Categoria}>
-                                <img src="img_avatar.png" alt="Avatar" style="width:300px;height:300px;">
+                                <img src="git.png" alt="Avatar" style="width:150px;height:150px;">
                             </div>
                         <h1>J${item.Nombre}</h1>
                         <p>${item.Slogan}</p>
                         <p>We love that guy</p>
                         </div>
-                        <div class="flip-card-back">
+                        <div class="flip-card-back ${item.Categoria}">
                         <h1>${item.Nombre}</h1>
                         <p>${item.Descripcion}</p>
                         <ul>
