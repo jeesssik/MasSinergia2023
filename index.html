@@ -22,9 +22,14 @@
         nav {
             text-align: center;
             padding: 10px;
+            background-color: white;
         }
-
-    
+        .navbar.fixed {
+            position: fixed;
+            text-align: center;
+            padding: 10px;
+            background-color: white;
+        }
 
         .container {
 
@@ -204,6 +209,8 @@
             background-color: #b4cbe5;
             /* Cambia el color de fondo al pasar el cursor */
         }
+
+       
     </style>
 
 </head>
@@ -758,13 +765,9 @@
             "Sinergizado": "SI"
         },
 
-
-
-
-
-
         ]
 
+      
         // Función para mostrar datos de una categoría
 
         function mostrarCategoria(categoria) {
@@ -833,12 +836,12 @@
         // Función para mostrar todos los proyectos
         function mostrarTodos() {
             var botones = document.querySelectorAll(".botones-categorias button");
-                botones.forEach(function (boton) {
+            botones.forEach(function (boton) {
 
-                        boton.className = 'button'
+                boton.className = 'button'
 
-                        console.log(boton)
-                    });
+                console.log(boton)
+            });
             var botonSeleccionado = document.getElementById("Todos");
             if (botonSeleccionado) {
                 botonSeleccionado.classList.add("Todos");
