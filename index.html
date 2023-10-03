@@ -24,8 +24,10 @@
             padding: 10px;
         }
 
+    
+
         .container {
-            
+
             flex-wrap: wrap;
             justify-content: center;
             /* Centrar horizontalmente */
@@ -156,46 +158,52 @@
                 width: 100%;
                 height: auto;
             }
-            .container {
-            
-            flex-wrap: wrap;
-            justify-content: center;
-            /* Centrar horizontalmente */
-            align-items: center;
-            /* Centrar verticalmente */
-            
-            /* centrar horizontalmente */
 
-            /* Altura completa de la ventana */
-            padding: 10px;
-            /* Espacio alrededor del contenedor */
-            box-sizing: border-box;
-        }
+            .container {
+
+                flex-wrap: wrap;
+                justify-content: center;
+                /* Centrar horizontalmente */
+                align-items: center;
+                /* Centrar verticalmente */
+
+                /* centrar horizontalmente */
+
+                /* Altura completa de la ventana */
+                padding: 10px;
+                /* Espacio alrededor del contenedor */
+                box-sizing: border-box;
+            }
         }
 
 
         /* Estilos CSS para el botón de volver al inicio */
-#scrollToTopButton {
-    background-image: url("backtop.png");
-    position: fixed;
-    bottom: 20px; /* Ajusta la distancia desde la parte inferior */
-    right: 20px; /* Ajusta la distancia desde la derecha */
-    z-index: 999; /* Asegura que el botón esté encima de otros elementos */
-    display: none; /* Oculta el botón inicialmente */
-    
-    border: none;
-    border-radius: 50%; /* Forma redonda del botón */
-    width: 30px;
-    height: 30px;
-    font-size: 16px;
-    cursor: pointer;
-}
+        #scrollToTopButton {
+            background-image: url("backtop.png");
+            position: fixed;
+            bottom: 20px;
+            /* Ajusta la distancia desde la parte inferior */
+            right: 20px;
+            /* Ajusta la distancia desde la derecha */
+            z-index: 999;
+            /* Asegura que el botón esté encima de otros elementos */
+            display: none;
+            /* Oculta el botón inicialmente */
 
-/* Estilos para cuando el botón se encuentra en estado hover (cursor sobre el botón) */
-#scrollToTopButton:hover {
-    background-color: #b4cbe5; /* Cambia el color de fondo al pasar el cursor */
-}
+            border: none;
+            border-radius: 50%;
+            /* Forma redonda del botón */
+            width: 30px;
+            height: 30px;
+            font-size: 16px;
+            cursor: pointer;
+        }
 
+        /* Estilos para cuando el botón se encuentra en estado hover (cursor sobre el botón) */
+        #scrollToTopButton:hover {
+            background-color: #b4cbe5;
+            /* Cambia el color de fondo al pasar el cursor */
+        }
     </style>
 
 </head>
@@ -204,7 +212,7 @@
     <header>
         <img src="4506.gif" alt="Logo">
     </header>
-    <nav class="botones-categorias">
+    <nav class="botones-categorias navbar">
         <button id="Sociedad" class="button" onclick="mostrarCategoria('Sociedad')">Sociedad</button>
         <button id="Negocios" class="button" onclick="mostrarCategoria('Negocios')">Negocios</button>
         <button id="Arte" class="button" onclick="mostrarCategoria('Arte')">Arte</button>
@@ -216,7 +224,7 @@
             <!-- Aquí se mostrarán las tarjetas -->
         </div>
         <img src="backtop.png" alt="" id="scrollToTopButton" onclick="scrollToTop()">
-        
+
     </div>
 
 
@@ -824,11 +832,20 @@
 
         // Función para mostrar todos los proyectos
         function mostrarTodos() {
-            
+            var botones = document.querySelectorAll(".botones-categorias button");
+                botones.forEach(function (boton) {
+
+                        boton.className = 'button'
+
+                        console.log(boton)
+                    });
             var botonSeleccionado = document.getElementById("Todos");
             if (botonSeleccionado) {
                 botonSeleccionado.classList.add("Todos");
             }
+
+
+
             var resultadoDiv = document.getElementById("resultado");
             resultadoDiv.innerHTML = ""; // Limpiar contenido anterior
 
@@ -867,25 +884,25 @@
         }
 
         // Función para desplazarse hacia la parte superior de la página
-function scrollToTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth' // Desplazamiento suave
-    });
-}
+        function scrollToTop() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Desplazamiento suave
+            });
+        }
 
-// Escucha el evento de desplazamiento (scroll) para mostrar u ocultar el botón
-window.addEventListener('scroll', function() {
-    var scrollToTopButton = document.getElementById('scrollToTopButton');
-    
-    if (window.scrollY > 300) {
-        // Mostrar el botón cuando se ha desplazado hacia abajo una cierta distancia
-        scrollToTopButton.style.display = 'block';
-    } else {
-        // Ocultar el botón si no se ha desplazado lo suficiente
-        scrollToTopButton.style.display = 'none';
-    }
-});
+        // Escucha el evento de desplazamiento (scroll) para mostrar u ocultar el botón
+        window.addEventListener('scroll', function () {
+            var scrollToTopButton = document.getElementById('scrollToTopButton');
+
+            if (window.scrollY > 300) {
+                // Mostrar el botón cuando se ha desplazado hacia abajo una cierta distancia
+                scrollToTopButton.style.display = 'block';
+            } else {
+                // Ocultar el botón si no se ha desplazado lo suficiente
+                scrollToTopButton.style.display = 'none';
+            }
+        });
 
     </script>
 </body>
