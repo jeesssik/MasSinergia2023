@@ -38,9 +38,10 @@
     /* Estilos para tarjetas */
     .flip-card {
         background-color: transparent;
+        float: left;
         width: 100%; 
         max-width: 300px; 
-        margin: 20px auto; 
+        margin: 20px ; 
         perspective: 1000px;
     }
 
@@ -87,12 +88,18 @@
         display: inline;
     }
 
-    .Salud {
-        background-color: #4CAF50;
+    .Arte {
+        background-color: #FE855F;
     }
 
     .Sociedad {
-        background-color: #2196F3;
+        background-color: #5F00E4;
+    }
+    .Salud{
+       background-color:  #FF136F;
+    }
+    .Negocios{
+        background-color: #93F8AB;
     }
 
     /* Estilos para imágenes dentro de las tarjetas */
@@ -140,9 +147,9 @@
 
  <script>
      // Simula los datos del archivo JSON
-     var datos = [
-    {
-        "Nombre": "+Salud",
+     var datos = [{
+      "ID": "1",
+      "Nombre": "+Salud",
         "Slogan": "\"Sistema de turnos",
         "Descripcion": " historias clínicas y estadísticas para médicos\"",
         "Categoria": "Salud",
@@ -154,28 +161,439 @@
                         null,
                         null
     ],
-        "Orientación": null,
-        "Sinergizado": null,
-        "Id\r": "Informática"
+      "Orientación": "Informática",
+      "Sinergizado": "SI"
     },
     {
-        "Nombre": "Green Grin",
-        "Slogan": "epigrafe grin grin",
-        "Descripcion": "Descripción del proyecto sinergizado",
-        "Categoria": "Sociedad",
-        "Integrantes": [
-                    "Maia S.",
-                    "Tami S.",
-                    "Luciana W.",
-                    null,
-                    null,
-                    null,
-                ],
-        "Orientación": null,
-        "Sinergizado": null,
-        "Id\r": "Informática - Gesión Almagro"
-    }
-];
+      "ID": "2",
+      "Nombre": "EcoMed",
+      "Slogan": "\"Innovación para la salud y el medio ambiente\"",
+      "Descripcion": "Plataforma integral para la gestión de expedientes médicos electrónicos y seguimiento de pacientes, priorizando la sostenibilidad ambiental.",
+      "Categoria": "Salud",
+      "Integrantes": [
+        "Laura M.",
+        "Daniel R.",
+        "Ana C.",
+        "Carlos G.",
+        null,
+        null
+      ],
+      "Orientación": "Informática",
+      "Sinergizado": "SI"
+    },
+    {
+      "ID": "3",
+      "Nombre": "EduTech Pro",
+      "Slogan": "\"Transformando la educación para un futuro brillante\"",
+      "Descripcion": "Plataforma educativa que utiliza la tecnología para personalizar el aprendizaje de los estudiantes y mejorar la experiencia de enseñanza para los profesores.",
+      "Categoria": "Sociedad",
+      "Integrantes": [
+        "Sofía T.",
+        "Juan C.",
+        "María P.",
+        "Luis R.",
+        "Marta S.",
+        null
+      ],
+      "Orientación": "TIC",
+      "Sinergizado": "SI"
+    },
+    {
+      "ID": "4",
+      "Nombre": "AgroData",
+      "Slogan": "\"Optimizando la agricultura a través de la tecnología\"",
+      "Descripcion": "Plataforma que utiliza datos agrícolas en tiempo real para ayudar a los agricultores a tomar decisiones informadas y aumentar la productividad de sus cultivos.",
+      "Categoria": "Sociedad",
+      "Integrantes": [
+        "Luisa G.",
+        "Diego A.",
+        "Elena L.",
+        null,
+        null,
+        null
+      ],
+      "Orientación": "Química",
+      "Sinergizado": "SI"
+    },
+    {
+      "ID": "5",
+      "Nombre": "GreenTech Solutions",
+      "Slogan": "\"Innovación verde para un mundo más limpio\"",
+      "Descripcion": "Desarrollamos tecnologías sostenibles, como sistemas de energía solar y gestión de residuos, para reducir el impacto ambiental y promover la ecoeficiencia.",
+      "Categoria": "Salud",
+      "Integrantes": [
+        "Carlos M.",
+        "Isabel V.",
+        "Pedro J.",
+        "Lucía F.",
+        null,
+        null
+      ],
+      "Orientación": "Construcción",
+      "Sinergizado": "SI"
+    },
+    {
+      "ID": "6",
+      "Nombre": "FoodieTech",
+      "Slogan": "\"Tecnología para una alimentación más saludable\"",
+      "Descripcion": "Plataforma que conecta a los amantes de la comida con restaurantes y productos saludables, promoviendo una dieta equilibrada y sostenible.",
+      "Categoria": "Salud",
+      "Integrantes": [
+        "Marta A.",
+        "Javier R.",
+        "Ana M.",
+        "David C.",
+        "Luis V.",
+        "María L."
+      ],
+      "Orientación": "Química",
+      "Sinergizado": "SI"
+    },{
+      "ID": "7",
+      "Nombre": "CleanCity App",
+      "Slogan": "\"Una ciudad más limpia en tus manos\"",
+      "Descripcion": "Aplicación móvil que permite a los ciudadanos reportar y resolver problemas de limpieza y mantenimiento en sus comunidades, promoviendo un entorno más limpio.",
+      "Categoria": "Salud",
+      "Integrantes": [
+        "Lucas S.",
+        "Camila G.",
+        "Andrés P.",
+        "Valeria C.",
+        null,
+        null
+      ],
+      "Orientación": "Construcción",
+      "Sinergizado": "SI"
+    },        
+    {
+      "ID": "8",
+      "Nombre": "FinTech Innovators",
+      "Slogan": "\"Transformando la industria financiera\"",
+      "Descripcion": "Desarrollamos soluciones financieras digitales innovadoras, como plataformas de pago y asesoramiento financiero automatizado, para simplificar la vida de las personas.",
+      "Categoria": "Negocios",
+      "Integrantes": [
+        "Pedro G.",
+        "María S.",
+        "Diego R.",
+        "Laura C.",
+        null,
+        null
+      ],
+      "Orientación": "Gestión",
+      "Sinergizado": "SI"
+    },
+    {
+      "ID": "9",
+      "Nombre": "TravelAdventures",
+      "Slogan": "\"Explora el mundo de manera sostenible\"",
+      "Descripcion": "Plataforma de planificación de viajes que promueve el turismo responsable y ofrece opciones de transporte ecoamigables y alojamientos sostenibles.",
+      "Categoria": "Negocios",
+      "Integrantes": [
+        "Elena P.",
+        "Pablo M.",
+        "Ana R.",
+        null,
+        null,
+        null
+      ],
+      "Orientación": "Gestión",
+      "Sinergizado": "SI"
+    },
+    {
+      "ID": "10",
+      "Nombre": "EduKids",
+      "Slogan": "\"Educación de calidad para los más pequeños\"",
+      "Descripcion": "Plataforma educativa diseñada específicamente para niños, que ofrece contenido educativo interactivo y seguro para el aprendizaje temprano.",
+      "Categoria": "Sociedad",
+      "Integrantes": [
+        "Sandra M.",
+        "Carlos L.",
+        "Lorena C.",
+        "Javier A.",
+        null,
+        null
+      ],
+      "Orientación": "Informática",
+      "Sinergizado": "SI"
+    },
+    {
+      "ID": "11",
+      "Nombre": "SmartHome Solutions",
+      "Slogan": "\"Hogares inteligentes para un estilo de vida mejor\"",
+      "Descripcion": "Desarrollamos sistemas de automatización del hogar que permiten a los propietarios controlar la iluminación, la seguridad y la eficiencia energética de sus hogares de manera conveniente y eficaz.",
+      "Categoria": "Sociedad",
+      "Integrantes": [
+        "Luis S.",
+        "Ana P.",
+        "Roberto D.",
+        "María R.",
+        null,
+        null
+      ],
+      "Orientación": "Informática",
+      "Sinergizado": "SI"
+    },
+    {
+    "ID": "12",
+    "Nombre": "ArtGallery",
+    "Slogan": "\"Descubre el mundo del arte\"",
+    "Descripcion": "Una plataforma en línea que conecta a artistas emergentes con amantes del arte, brindando un espacio para exhibir y vender obras de arte de manera accesible y global.",
+    "Categoria": "Arte",
+    "Integrantes": [
+        "Sofía G.",
+        "Alejandro P.",
+        "Camila R.",
+        null,
+        null,
+        null
+    ],
+    "Orientación": "Artes Visuales",
+    "Sinergizado": "SI"
+},{
+  "ID": "13",
+  "Nombre": "Música Innovadora",
+  "Slogan": "\"Explora nuevos sonidos\"",
+  "Descripcion": "Una banda musical experimental que fusiona géneros y utiliza tecnología para crear una experiencia única de conciertos y grabaciones musicales.",
+  "Categoria": "Arte",
+  "Integrantes": [
+    "Lucas M.",
+    "Valentina S.",
+    "Diego L.",
+    "Marta V.",
+    null,
+    null
+  ],
+  "Orientación": "Música Experimental",
+  "Sinergizado": "SI"
+},
+{
+  "ID": "14",
+  "Nombre": "Teatro Creativo",
+  "Slogan": "\"Donde la imaginación cobra vida\"",
+  "Descripcion": "Una compañía de teatro que produce y presenta obras innovadoras que desafían las convenciones, combinando actuación, tecnología y arte visual en el escenario.",
+  "Categoria": "Arte",
+  "Integrantes": [
+    "Elena C.",
+    "Javier S.",
+    "María L.",
+    "Andrés M.",
+    null,
+    null
+  ],
+  "Orientación": "Teatro Experimental",
+  "Sinergizado": "SI"
+},{
+  "ID": "15",
+  "Nombre": "Arte Urbano",
+  "Slogan": "\"Pintando las calles de creatividad\"",
+  "Descripcion": "Un colectivo de artistas callejeros que transforma espacios urbanos grises en lienzos coloridos, creando arte público que inspira y embellece la ciudad.",
+  "Categoria": "Arte",
+  "Integrantes": [
+    "Carlos V.",
+    "Isabel M.",
+    "Luis G.",
+    "Marta P.",
+    null,
+    null
+  ],
+  "Orientación": "Arte Callejero",
+  "Sinergizado": "SI"
+},
+{
+  "ID": "16",
+  "Nombre": "Cine Indie",
+  "Slogan": "\"Contando historias fuera de lo común\"",
+  "Descripcion": "Un equipo de cineastas independientes que producen películas y documentales originales, explorando temas y narrativas únicas en la pantalla grande.",
+  "Categoria": "Arte",
+  "Integrantes": [
+    "Laura R.",
+    "Diego C.",
+    "María G.",
+    null,
+    null,
+    null
+  ],
+  "Orientación": "Cine Independiente",
+  "Sinergizado": "SI"
+},
+{
+  "ID": "17",
+  "Nombre": "Esculturas en Metal",
+  "Slogan": "\"Forjando arte con acero\"",
+  "Descripcion": "Un taller de artistas que crea esculturas metálicas de gran envergadura, combinando la fuerza del metal con la belleza de las formas artísticas.",
+  "Categoria": "Arte",
+  "Integrantes": [
+    "Pedro A.",
+    "Ana M.",
+    "Javier C.",
+    "Lucía P.",
+    null,
+    null
+  ],
+  "Orientación": "Escultura Metálica",
+  "Sinergizado": "SI"
+},{
+  "ID": "18",
+  "Nombre": "Danza Contemporánea",
+  "Slogan": "\"Movimiento que inspira emociones\"",
+  "Descripcion": "Un grupo de bailarines que exploran la danza contemporánea, fusionando diferentes estilos y expresando emociones a través del movimiento artístico.",
+  "Categoria": "Arte",
+  "Integrantes": [
+    "Lorena R.",
+    "Pablo V.",
+    "María C.",
+    "Carlos A.",
+    null,
+    null
+  ],
+  "Orientación": "Danza Contemporánea",
+  "Sinergizado": "SI"
+},
+{
+  "ID": "19",
+  "Nombre": "Literatura Creativa",
+  "Slogan": "\"Palabras que pintan mundos\"",
+  "Descripcion": "Un colectivo de escritores que crea obras literarias innovadoras, desde novelas experimentales hasta poesía contemporánea que desafía las convenciones.",
+  "Categoria": "Arte",
+  "Integrantes": [
+    "Sandra V.",
+    "David M.",
+    "Elena G.",
+    null,
+    null,
+    null
+  ],
+  "Orientación": "Literatura Experimental",
+  "Sinergizado": "SI"
+},
+{
+  "ID": "20",
+  "Nombre": "Arte Digital",
+  "Slogan": "\"Explorando la creatividad en el mundo digital\"",
+  "Descripcion": "Un grupo de artistas que utiliza herramientas digitales para crear obras de arte únicas, desde ilustraciones hasta animaciones y experiencias interactivas.",
+  "Categoria": "Arte",
+  "Integrantes": [
+    "Alejandro R.",
+    "Laura S.",
+    "Andrés G.",
+    "Camila M.",
+    null,
+    null
+  ],
+  "Orientación": "Arte Digital",
+  "Sinergizado": "SI"
+},
+{
+  "ID": "21",
+  "Nombre": "Fotografía Artística",
+  "Slogan": "\"Capturando momentos con un toque creativo\"",
+  "Descripcion": "Un grupo de fotógrafos que exploran la fotografía artística, desde paisajes surrealistas hasta retratos que cuentan historias profundas a través de la lente.",
+  "Categoria": "Arte",
+  "Integrantes": [
+    "Lucas D.",
+    "Valeria M.",
+    "Diego G.",
+    "Marta A.",
+    null,
+    null
+  ],
+  "Orientación": "Fotografía Creativa",
+  "Sinergizado": "SI"
+},
+{
+  "ID": "22",
+  "Nombre": "EcoBiz Consultores",
+  "Slogan": "\"Negocios sostenibles para un mundo mejor\"",
+  "Descripcion": "Consultora especializada en estrategias de negocios sostenibles, ayudando a empresas a adoptar prácticas responsables con el medio ambiente y la sociedad.",
+  "Categoria": "Negocios",
+  "Integrantes": [
+    "Carlos L.",
+    "Laura S.",
+    "Javier M.",
+    null,
+    null,
+    null
+  ],
+  "Orientación": "Consultoría Empresarial",
+  "Sinergizado": "SI"
+},
+{
+  "ID": "23",
+  "Nombre": "TechStartup Solutions",
+  "Slogan": "\"Impulsando startups hacia el éxito\"",
+  "Descripcion": "Incubadora de startups que proporciona recursos, mentoría y financiamiento para emprendedores tecnológicos que desean llevar sus ideas al mercado.",
+  "Categoria": "Negocios",
+  "Integrantes": [
+    "Marta G.",
+    "Andrés P.",
+    "Sofía R.",
+    "Diego L.",
+    null,
+    null
+  ],
+  "Orientación": "Emprendimiento Tecnológico",
+  "Sinergizado": "SI"
+},
+{
+  "ID": "24",
+  "Nombre": "Finanzas Estratégicas",
+  "Slogan": "\"Optimizando el flujo de efectivo\"",
+  "Descripcion": "Consultora financiera que ayuda a las empresas a mejorar su gestión financiera, reducir costos y maximizar la rentabilidad a través de estrategias sólidas.",
+  "Categoria": "Negocios",
+  "Integrantes": [
+    "Lucas R.",
+    "María C.",
+    "David S.",
+    null,
+    null,
+    null
+  ],
+  "Orientación": "Consultoría Financiera",
+  "Sinergizado": "SI"
+},
+{
+  "ID": "25",
+  "Nombre": "Comercio Electrónico Express",
+  "Slogan": "\"Convierte tu negocio en una tienda en línea\"",
+  "Descripcion": "Agencia especializada en la creación y gestión de tiendas en línea, ayudando a las empresas a expandir su presencia en el mercado digital.",
+  "Categoria": "Negocios",
+  "Integrantes": [
+    "Ana M.",
+    "Javier A.",
+    "Valentina G.",
+    null,
+    null,
+    null
+  ],
+  "Orientación": "Comercio Electrónico",
+  "Sinergizado": "SI"
+},
+{
+  "ID": "26",
+  "Nombre": "Recursos Humanos Estratégicos",
+  "Slogan": "\"Talento que impulsa el crecimiento\"",
+  "Descripcion": "Consultora de recursos humanos que trabaja en estrecha colaboración con empresas para identificar, contratar y desarrollar talento estratégico.",
+  "Categoria": "Negocios",
+  "Integrantes": [
+    "Pedro G.",
+    "María S.",
+    "Luis R.",
+    "Sandra M.",
+    null,
+    null
+  ],
+  "Orientación": "Recursos Humanos",
+  "Sinergizado": "SI"
+}
+
+
+
+
+
+
+
+
+]
 
      // Función para mostrar datos de una categoría
           // Función para mostrar datos de una categoría
