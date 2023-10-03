@@ -87,22 +87,22 @@
         }
 
         .Arte {
-            background-color: #FE855F;
+            background-color: #ea7824;
         }
 
         .Sociedad {
-            background-color: #5F00E4;
+            background-color: #009edb;
         }
 
         .Salud {
-            background-color: #FF136F;
+            background-color: #c14096;
         }
 
         .Negocios {
-            background-color: #93F8AB;
+            background-color: #b4be35;
         }
         .Todos{
-            background-color: #d6f893;
+            background-color: #fbdd12;
         }
 
         /* Estilos para imágenes dentro de las tarjetas */
@@ -669,9 +669,6 @@
                 if (botonSeleccionado) {
                     botonSeleccionado.classList.add(categoria);
                 }
-                    
-
-
 
                 
             } else {
@@ -681,6 +678,10 @@
 
         // Función para mostrar todos los proyectos
         function mostrarTodos() {
+            var botonSeleccionado = document.getElementById("Todos");
+                if (botonSeleccionado) {
+                    botonSeleccionado.classList.add("Todos");
+                }
             var resultadoDiv = document.getElementById("resultado");
             resultadoDiv.innerHTML = ""; // Limpiar contenido anterior
 
