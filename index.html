@@ -13,10 +13,20 @@
             font-family: Arial, sans-serif;
         }
 
+        body,html {
+            margin: 0;
+            padding: 0;
+        }
+
         header {
-            text-align: center;
-            padding: 20px;
-            color: white;
+            overflow: hidden;
+        }
+
+        #logo-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0;
         }
 
         nav {
@@ -36,24 +46,11 @@
 
             flex-wrap: wrap;
             justify-content: center;
-            /* Centrar horizontalmente */
             align-items: center;
-            /* Centrar verticalmente */
             height: 100vh;
-            /* Altura completa de la ventana */
             padding-left: 76px;
-            /* Espacio alrededor del contenedor */
             box-sizing: border-box;
         }
-
-        /* .button {
-            padding: 10px 20px;
-            margin: 5px;
-            background-color: #555;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }*/
 
         .button-55 {
             align-self: center;
@@ -226,11 +223,6 @@
                 max-width: 80%;
             }
 
-            header img {
-                width: 100%;
-                height: auto;
-            }
-
             .container {
 
                 flex-wrap: wrap;
@@ -291,7 +283,7 @@
 
 <body>
     <header>
-        <img src="4506.gif" alt="Logo">
+        <img src="4506.gif" alt="Logo" id="logo-image">
     </header>
     <nav class="botones-categorias navbar" style="display: flex; align-items: center; justify-content: space-between;">
         <div style="text-align: center;">
