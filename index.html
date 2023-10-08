@@ -127,7 +127,7 @@
         }
 
         .flip-card-front {
-            background-color: #bbb;
+            background-color: #bbbbbb00;
             color: black;
         }
 
@@ -331,8 +331,6 @@
 
             console.log(tarjeta);
         }
-
-
 
         // Simula los datos del archivo JSON
         var datos = [{
@@ -877,9 +875,9 @@
                     var card = document.createElement("div");
                     card.classList.add("flip-card");
                     card.innerHTML = `
-                <div class="flip-card-inner">
-                    <div class="flip-card-front">
-                        <div class=${categoria}>
+                <div class="flip-card-inner ${categoria}">
+                    <div class="flip-card-front ">
+                        <div >
                             <img src="git.png" alt="Avatar" style="width:150px;height:150px;">
                         </div>
                         <h1>${item.Nombre}</h1>
@@ -949,9 +947,9 @@
                 var card = document.createElement("div");
                 card.classList.add("flip-card");
                 card.innerHTML = `
-                    <div class="flip-card-inner">
+                <div class="flip-card-inner ${item.Categoria}">
                         <div class="flip-card-front">
-                            <div class=${item.Categoria}>
+                            <div >
                                 <img src="git.png" alt="Avatar" style="width:150px;height:150px;">
                             </div>
                         <h1>${item.Nombre}</h1>
