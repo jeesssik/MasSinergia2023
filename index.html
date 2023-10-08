@@ -91,17 +91,6 @@
             transform: translate3d(0, 2px, 0);
         }
 
-        /* .button-55:focus {
-            box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
-        }*/
-
-
-
-
-
-
-
-
         /* Estilos para tarjetas */
         .flip-card {
             background-color: transparent;
@@ -198,8 +187,6 @@
             margin: 20px auto;
         }
 
-
-
         /* Media query para dispositivos móviles */
         @media (max-width: 768px) {
             .flip-card {
@@ -223,7 +210,6 @@
                 box-sizing: border-box;
             }
         }
-
 
         /* Estilos CSS para el botón de volver al inicio */
         #scrollToTopButton {
@@ -266,6 +252,10 @@
         <button id="Arte" class="button-55" onclick="mostrarCategoria('Arte')">Arte</button>
         <button id="Salud" class="button-55" onclick="mostrarCategoria('Salud')">Salud</button>
         <button id="Todos" class="button-55" onclick="mostrarTodos()">Todos</button>
+
+
+        <input type="text" id="buscador" placeholder="Buscar proyectos...">
+
     </nav>
     <div class="container">
         <div id="resultado">
@@ -831,7 +821,7 @@
                         </div>
                         <h1>${item.Nombre}</h1>
                         <p>${item.Slogan}</p>
-                        <p>We love that guy</p>
+                       
                     </div>
                     <div class="flip-card-back ${item.Categoria}">
                         <h1>${item.Nombre}</h1>
@@ -905,7 +895,7 @@
                             </div>
                         <h1>${item.Nombre}</h1>
                         <p>${item.Slogan}</p>
-                        <p>We love that guy</p>
+                       
                         </div>
                         <div class="flip-card-back ${item.Categoria}">
                         <h1>${item.Nombre}</h1>
@@ -926,6 +916,70 @@
                 resultadoDiv.appendChild(card);
             });
         }
+
+        const buscador = document.getElementById('buscador');
+
+        buscador.addEventListener('input', function () {
+            const terminoBusqueda = buscador.value.trim().toLowerCase();
+            filtrarProyectos(terminoBusqueda);
+        });
+
+        function filtrarProyectos(termino) {
+            const resultadoDiv = document.getElementById('resultado');
+            resultadoDiv.innerHTML = ''; // Limpiar contenido anterior
+
+            const proyectosFiltrados = datos.filter(function (proyecto) {
+                const titulo = proyecto.Nombre.toLowerCase();
+                const descripcion = proyecto.Descripcion.toLowerCase();
+                /**************************
+                 * Despues de cambiar el mapeo de integrantes, hacer la búsqueda en integrantes
+                 * ************************/
+
+                return titulo.includes(termino) || descripcion.includes(termino);
+            });
+
+            if (proyectosFiltrados.length > 0) {
+                proyectosFiltrados.forEach(function (item) {
+                    // Crea y muestra tarjetas para los proyectos filtrados aquí
+                    // Puedes reutilizar la lógica de creación de tarjetas existentevar card = document.createElement("div");
+                var card = document.createElement("div");
+                card.classList.add("flip-card");
+                card.innerHTML = `
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class=${item.Categoria}>
+                                <img src="git.png" alt="Avatar" style="width:150px;height:150px;">
+                            </div>
+                        <h1>${item.Nombre}</h1>
+                        <p>${item.Slogan}</p>
+                        
+                        </div>
+                        <div class="flip-card-back ${item.Categoria}">
+                        <h1>${item.Nombre}</h1>
+                        <p>${item.Descripcion}</p>
+                        <ul>
+                            ${item.Integrantes.map(function (integrante) {
+                    if (integrante !== null) {
+                        return `<li>${integrante}, </li>`;
+                    } else {
+                        return ''; // No mostrar integrantes null
+                    }
+                }).join('')}
+                        </ul>
+                        <p>Categoria: ${item.Categoria}</p>
+                        </div>
+                    </div>
+                `
+                resultadoDiv.appendChild(card);
+            
+                });
+            } else {
+                resultadoDiv.innerHTML = '<p>No se encontraron proyectos.</p>';
+            }
+        }
+
+
+
 
         // Función para desplazarse hacia la parte superior de la página
         function scrollToTop() {
