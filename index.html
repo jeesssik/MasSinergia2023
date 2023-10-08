@@ -112,9 +112,10 @@
             border-radius: 5%;
         }
 
-        .flip-card:hover .flip-card-inner {
+        .flip-card.girar .flip-card-inner {
             transform: rotateY(180deg);
         }
+
 
         .flip-card-front,
         .flip-card-back {
@@ -238,6 +239,20 @@
             background-color: #b4cbe5;
             /* Cambia el color de fondo al pasar el cursor */
         }
+
+        #buscador {
+            text-align: right;
+            line-height: 23px;
+            border: none;
+            border-bottom: 1px solid #000;
+            text-align: right;
+            outline: none;
+        }
+
+        #buscador:focus {
+            border: none;
+            border-bottom: 1px solid #000;
+        }
     </style>
 
 </head>
@@ -246,16 +261,17 @@
     <header>
         <img src="4506.gif" alt="Logo">
     </header>
-    <nav class="botones-categorias navbar">
-        <button id="Sociedad" class="button-55" onclick="mostrarCategoria('Sociedad')">Sociedad</button>
-        <button id="Negocios" class="button-55" onclick="mostrarCategoria('Negocios')">Negocios</button>
-        <button id="Arte" class="button-55" onclick="mostrarCategoria('Arte')">Arte</button>
-        <button id="Salud" class="button-55" onclick="mostrarCategoria('Salud')">Salud</button>
-        <button id="Todos" class="button-55" onclick="mostrarTodos()">Todos</button>
-
-
+    <nav class="botones-categorias navbar" style="display: flex; align-items: center; justify-content: space-between;">
+        <div style="text-align: center;">
+            <button id="Sociedad" class="button-55" onclick="mostrarCategoria('Sociedad')">Sociedad</button>
+            <button id="Negocios" class="button-55" onclick="mostrarCategoria('Negocios')">Negocios</button>
+            <button id="Arte" class="button-55" onclick="mostrarCategoria('Arte')">Arte</button>
+            <button id="Salud" class="button-55" onclick="mostrarCategoria('Salud')">Salud</button>
+            <button id="Todos" class="button-55" onclick="mostrarTodos()">Todos</button>
+        </div>
         <input type="text" id="buscador" placeholder="Buscar proyectos...">
-
+        <!--<input type="text" id="buscador" id="buscador" placeholder="Buscar proyectos..." style="text-align: right;">
+        -->
     </nav>
     <div class="container">
         <div id="resultado">
@@ -271,6 +287,21 @@
         window.onload = function () {
             mostrarTodos();
         };
+
+
+        //Girar tarjeta con boton
+        function girarTarjeta(button) {
+            // Encuentra el elemento padre (la tarjeta) del botón clicado
+            const tarjeta = button.closest('.flip-card');
+
+            // Alterna la clase "girar" en la tarjeta para activar o desactivar la rotación
+            tarjeta.classList.toggle('girar');
+
+            console.log(tarjeta);
+        }
+
+
+
         // Simula los datos del archivo JSON
         var datos = [{
             "ID": "1",
@@ -821,7 +852,7 @@
                         </div>
                         <h1>${item.Nombre}</h1>
                         <p>${item.Slogan}</p>
-                       
+                        <button class="girar-button" onclick="girarTarjeta(this)">Girar</button>
                     </div>
                     <div class="flip-card-back ${item.Categoria}">
                         <h1>${item.Nombre}</h1>
@@ -836,6 +867,7 @@
                     }).join('')}
                         </ul>
                         <p>Categoria: ${item.Categoria}</p>
+                        <button class="girar-button" onclick="girarTarjeta(this)">Girar</button>
                     </div>
                 </div>
             `
@@ -845,11 +877,11 @@
                 // Cambiar la clase "activo" del botón seleccionado
                 var botones = document.querySelectorAll(".botones-categorias button");
                 botones.forEach(function (boton) {
-                    console.log(boton.getElementsByClassName(categoria))
+                    // console.log(boton.getElementsByClassName(categoria))
                     if (boton.getElementsByClassName(categoria) != categoria) {
                         boton.className = 'button-55'
 
-                        console.log(boton)
+                        //  console.log(boton)
                     }
                 });
 
@@ -871,15 +903,12 @@
 
                 boton.className = 'button-55'
 
-                console.log(boton)
+                //console.log(boton)
             });
             var botonSeleccionado = document.getElementById("Todos");
             if (botonSeleccionado) {
                 botonSeleccionado.classList.add("Todos");
             }
-
-
-
             var resultadoDiv = document.getElementById("resultado");
             resultadoDiv.innerHTML = ""; // Limpiar contenido anterior
 
@@ -895,21 +924,22 @@
                             </div>
                         <h1>${item.Nombre}</h1>
                         <p>${item.Slogan}</p>
-                       
+                        <button class="girar-button" onclick="girarTarjeta(this)">Girar</button>
                         </div>
-                        <div class="flip-card-back ${item.Categoria}">
-                        <h1>${item.Nombre}</h1>
-                        <p>${item.Descripcion}</p>
-                        <ul>
-                            ${item.Integrantes.map(function (integrante) {
+                        <div class="flip-card-back .flip-card ${item.Categoria}">
+                                <h1>${item.Nombre}</h1>
+                                <p>${item.Descripcion}</p>
+                                <ul>
+                                    ${item.Integrantes.map(function (integrante) {
                     if (integrante !== null) {
                         return `<li>${integrante}, </li>`;
                     } else {
                         return ''; // No mostrar integrantes null
                     }
                 }).join('')}
-                        </ul>
-                        <p>Categoria: ${item.Categoria}</p>
+                                </ul>
+                                <p>Categoria: ${item.Categoria}</p>
+                                <button class="girar-button" onclick="girarTarjeta(this)">Girar</button>
                         </div>
                     </div>
                 `
@@ -942,9 +972,9 @@
                 proyectosFiltrados.forEach(function (item) {
                     // Crea y muestra tarjetas para los proyectos filtrados aquí
                     // Puedes reutilizar la lógica de creación de tarjetas existentevar card = document.createElement("div");
-                var card = document.createElement("div");
-                card.classList.add("flip-card");
-                card.innerHTML = `
+                    var card = document.createElement("div");
+                    card.classList.add("flip-card");
+                    card.innerHTML = `
                     <div class="flip-card-inner">
                         <div class="flip-card-front">
                             <div class=${item.Categoria}>
@@ -959,27 +989,24 @@
                         <p>${item.Descripcion}</p>
                         <ul>
                             ${item.Integrantes.map(function (integrante) {
-                    if (integrante !== null) {
-                        return `<li>${integrante}, </li>`;
-                    } else {
-                        return ''; // No mostrar integrantes null
-                    }
-                }).join('')}
+                        if (integrante !== null) {
+                            return `<li>${integrante}, </li>`;
+                        } else {
+                            return ''; // No mostrar integrantes null
+                        }
+                    }).join('')}
                         </ul>
                         <p>Categoria: ${item.Categoria}</p>
                         </div>
                     </div>
                 `
-                resultadoDiv.appendChild(card);
-            
+                    resultadoDiv.appendChild(card);
+
                 });
             } else {
                 resultadoDiv.innerHTML = '<p>No se encontraron proyectos.</p>';
             }
         }
-
-
-
 
         // Función para desplazarse hacia la parte superior de la página
         function scrollToTop() {
@@ -988,7 +1015,6 @@
                 behavior: 'smooth' // Desplazamiento suave
             });
         }
-
         // Escucha el evento de desplazamiento (scroll) para mostrar u ocultar el botón
         window.addEventListener('scroll', function () {
             var scrollToTopButton = document.getElementById('scrollToTopButton');
