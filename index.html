@@ -9,13 +9,15 @@
     <meta name="keywords" content="Sinergia, 2023, Proyectos, Tecnología, Informática, Arte, Sociedad, Salud, Negocios
     , ORT, ORT proyecto final">
     <link rel="icon" type="image/png" href="mas.png">
-    
+
     <style>
         body {
             font-family: Arial, sans-serif;
+            background-color: #1D1D1B;
         }
 
-        body,html {
+        body,
+        html {
             margin: 0;
             padding: 0;
         }
@@ -30,19 +32,30 @@
             display: block;
             margin: 0;
         }
+
         .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Centra horizontalmente */
-    align-items: center; /* Centra verticalmente */
-    min-height: 100vh; /* Altura mínima de la ventana */
-}
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
 
         nav {
             text-align: center;
             padding: 10px;
-            background-color: white;
+            background-color: #1D1D1B;
         }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            padding: 10px;
+            background-color: #1D1D1B;
+        }
+
 
         .navbar.fixed {
             position: fixed;
@@ -61,19 +74,19 @@
 
         .button-55 {
             align-self: center;
-            background-color: #fff;
+            background-color: #1D1D1B;
             background-image: none;
             background-position: 0 90%;
             background-repeat: repeat no-repeat;
             background-size: 4px 3px;
             border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
             border-style: solid;
+            border-color: rgba(90, 230, 167, 0.2);
             border-width: 2px;
-            box-shadow: rgba(0, 0, 0, .2) 15px 28px 25px -18px;
+            box-shadow: rgba(90, 230, 167, 0.2) 15px 28px 25px -18px;
             box-sizing: border-box;
-            color: #41403e;
+            color: #ffffff;
             cursor: pointer;
-            display: inline-block;
             font-family: Neucha, sans-serif;
             font-size: 1rem;
             line-height: 23px;
@@ -91,7 +104,7 @@
         }
 
         .button-55:hover {
-            box-shadow: rgba(0, 0, 0, .3) 2px 8px 8px -5px;
+            box-shadow: rgba(45, 163, 94, 0.3) 2px 8px 8px -5px;
             transform: translate3d(0, 2px, 0);
         }
 
@@ -119,7 +132,6 @@
         .flip-card.girar .flip-card-inner {
             transform: rotateY(180deg);
         }
-
 
         .flip-card-front,
         .flip-card-back {
@@ -190,7 +202,7 @@
         .girar-button {
             background-color: #513ae618;
             border-radius: 100px;
-            box-shadow: rgba(44, 187, 99, .2) 0 -25px 18px -14px inset, rgba(44, 187, 99, .15) 0 1px 2px, rgba(44, 187, 99, .15) 0 2px 4px, rgba(44, 187, 99, .15) 0 4px 8px, rgba(44, 187, 99, .15) 0 8px 16px, rgba(44, 187, 99, .15) 0 16px 32px;
+            box-shadow: rgba(163, 44, 187, 0.2) 0 -25px 18px -14px inset, rgba(187, 44, 187, 0.15) 0 1px 2px, rgba(175, 44, 187, 0.15) 0 2px 4px, rgba(187, 44, 177, 0.15) 0 4px 8px, rgba(187, 44, 165, 0.15) 0 8px 16px, rgba(154, 44, 187, 0.15) 0 16px 32px;
             color: rgb(128, 0, 83);
             cursor: pointer;
             display: inline-block;
@@ -214,9 +226,6 @@
             box-shadow: rgba(163, 44, 187, 0.142) 0 -25px 18px -14px inset, rgba(154, 44, 187, 0.25) 0 1px 2px, rgba(168, 44, 187, 0.25) 0 2px 4px, rgba(149, 44, 187, 0.25) 0 4px 8px, rgba(187, 44, 175, 0.25) 0 8px 16px, rgba(161, 44, 187, 0.25) 0 16px 32px;
             transform: scale(1.05) rotate(-1deg);
         }
-
-
-
 
         /* Estilos para el botón "Mostrar Todos" */
         #mostrar-todos-button {
@@ -243,17 +252,11 @@
             background-image: url("backtop.png");
             position: fixed;
             bottom: 20px;
-            /* Ajusta la distancia desde la parte inferior */
             right: 20px;
-            /* Ajusta la distancia desde la derecha */
             z-index: 999;
-            /* Asegura que el botón esté encima de otros elementos */
             display: none;
-            /* Oculta el botón inicialmente */
-
             border: none;
             border-radius: 50%;
-            /* Forma redonda del botón */
             width: 30px;
             height: 30px;
             font-size: 16px;
@@ -263,7 +266,6 @@
         /* Estilos para cuando el botón se encuentra en estado hover (cursor sobre el botón) */
         #scrollToTopButton:hover {
             background-color: #b4cbe5;
-            /* Cambia el color de fondo al pasar el cursor */
         }
 
         #buscador {
@@ -273,6 +275,7 @@
             border-bottom: 1px solid #000;
             text-align: right;
             outline: none;
+            background-color: #1D1D1B;
         }
 
         #buscador:focus {
@@ -287,7 +290,7 @@
     <header>
         <img src="4506.gif" alt="Logo" id="logo-image">
     </header>
-    <nav class="botones-categorias navbar" style="display: flex; align-items: center; justify-content: space-between;">
+    <nav class="botones-categorias navbar" style="display: flex; align-items: center; justify-content: space-around;">
         <div style="text-align: center;">
             <button id="Sociedad" class="button-55" onclick="mostrarCategoria('Sociedad')">Sociedad</button>
             <button id="Negocios" class="button-55" onclick="mostrarCategoria('Negocios')">Negocios</button>
@@ -296,8 +299,6 @@
             <button id="Todos" class="button-55" onclick="mostrarTodos()">Todos</button>
         </div>
         <input type="text" id="buscador" placeholder="Buscar proyectos...">
-        <!--<input type="text" id="buscador" id="buscador" placeholder="Buscar proyectos..." style="text-align: right;">
-        -->
     </nav>
     <div class="container">
         <div id="resultado" class="card-container">
