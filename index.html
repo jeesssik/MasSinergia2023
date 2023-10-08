@@ -8,6 +8,8 @@
     <meta name="description" content="Proyectos de Sinergia 2023">
     <meta name="keywords" content="Sinergia, 2023, Proyectos, Tecnología, Informática, Arte, Sociedad, Salud, Negocios
     , ORT, ORT proyecto final">
+    <link rel="icon" type="image/png" href="mas.png">
+    
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -28,6 +30,13 @@
             display: block;
             margin: 0;
         }
+        .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    min-height: 100vh; /* Altura mínima de la ventana */
+}
 
         nav {
             text-align: center;
@@ -43,12 +52,10 @@
         }
 
         .container {
-
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            padding-left: 76px;
             box-sizing: border-box;
         }
 
@@ -224,14 +231,9 @@
             }
 
             .container {
-
                 flex-wrap: wrap;
                 justify-content: center;
-                /* Centrar horizontalmente */
                 align-items: center;
-                /* Altura completa de la ventana */
-                padding-left: 31px;
-                /* Espacio alrededor del contenedor */
                 box-sizing: border-box;
             }
         }
@@ -298,7 +300,7 @@
         -->
     </nav>
     <div class="container">
-        <div id="resultado">
+        <div id="resultado" class="card-container">
             <!-- Aquí se mostrarán las tarjetas -->
         </div>
         <img src="backtop.png" alt="" id="scrollToTopButton" onclick="scrollToTop()">
