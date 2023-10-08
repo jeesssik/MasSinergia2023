@@ -13,7 +13,10 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #1D1D1B;
+            /*background-color: #1D1D1B;*/
+            /*background-image: url("wall.png");
+            background-size: cover;
+            background-attachment: fixed;*/
         }
 
         body,
@@ -41,19 +44,13 @@
             min-height: 100vh;
         }
 
-        nav {
-            text-align: center;
-            padding: 10px;
-            background-color: #1D1D1B;
-        }
-
         .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
             text-align: center;
             padding: 10px;
-            background-color: #1D1D1B;
+           /* background-color: #1D1D1B;*/
         }
 
 
@@ -74,7 +71,7 @@
 
         .button-55 {
             align-self: center;
-            background-color: #1D1D1B;
+            /*background-color: #1D1D1B;*/
             background-image: none;
             background-position: 0 90%;
             background-repeat: repeat no-repeat;
@@ -85,7 +82,7 @@
             border-width: 2px;
             box-shadow: rgba(90, 230, 167, 0.2) 15px 28px 25px -18px;
             box-sizing: border-box;
-            color: #ffffff;
+            /*color: #ffffff;*/
             cursor: pointer;
             font-family: Neucha, sans-serif;
             font-size: 1rem;
@@ -113,8 +110,8 @@
             background-color: transparent;
             float: left;
             width: 100%;
-            max-width: 300px;
-            margin: 20px;
+            max-width: 231px;
+            margin: 12px;
             perspective: 1000px;
         }
 
@@ -125,7 +122,7 @@
             text-align: center;
             transition: transform 0.8s;
             transform-style: preserve-3d;
-            border: 5px solid rgba(0, 0, 0, 0.366);
+           /* border: 5px solid rgba(0, 0, 0, 0.075);*/
             border-radius: 5%;
         }
 
@@ -140,6 +137,7 @@
             height: 100%;
             -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
+            border-radius: 5%;
         }
 
         .flip-card-front {
@@ -160,40 +158,41 @@
         ul li {
             display: inline;
         }
-
+        
         .Arte {
-            background: rgb(237, 131, 12);
-            background: linear-gradient(0deg, rgba(237, 131, 12, 1) 0%, rgba(120, 59, 0, 1) 100%);
+            background: rgb(237, 131, 12,0.02);
+            background: linear-gradient(0deg, rgba(237, 131, 12, 0.4) 0%, rgba(120, 59, 0, 0.4) 100%);
         }
 
         .Sociedad {
-            background: rgb(79, 173, 255);
-            background: linear-gradient(0deg, rgba(79, 173, 255, 1) 0%, rgba(84, 95, 168, 1) 100%);
+            background: rgba(79, 173, 255, 0.2);
+            background: linear-gradient(0deg, rgba(230, 186, 191,0.4) 0%, rgba(143, 52, 129, 0.4) 100%);
         }
 
         .Salud {
-            background: rgb(230, 186, 191);
-            background: linear-gradient(0deg, rgba(230, 186, 191, 1) 0%, rgba(143, 52, 129, 1) 100%);
+            background: rgb(230, 186, 191,0.2);
+            background: linear-gradient(0deg, rgba(230, 186, 191, 0.4) 0%, rgba(143, 52, 129, 0.4) 100%);
+       
         }
 
         .Negocios {
-            background: rgb(67, 176, 80);
-            background: linear-gradient(0deg, rgba(67, 176, 80, 1) 0%, rgba(18, 69, 22, 1) 100%);
+            background: rgb(67, 176, 80,0.2);
+            background: linear-gradient(0deg, rgba(67, 176, 80, 0.4) 0%, rgba(18, 69, 22, 0.4) 100%);
         }
 
         .Todos {
-            background: rgb(219, 226, 0);
-            background: linear-gradient(0deg, rgba(219, 226, 0, 1) 0%, rgba(99, 101, 12, 1) 100%);
+            background: rgb(219, 226, 0,0.2);
+            background: linear-gradient(0deg, rgba(218, 226, 0, 0.4) 0%, rgba(99, 101, 12,0.4) 100%);
         }
+
 
         /* Estilos para imágenes dentro de las tarjetas */
         .flip-card img {
-            max-width: 100%;
-            height: auto;
+            width: 100px;
         }
 
         /* Estilos para texto dentro de las tarjetas */
-        .flip-card h1,
+        .flip-card h2,
         .flip-card p {
             margin: 0;
         }
@@ -265,7 +264,7 @@
 
         /* Estilos para cuando el botón se encuentra en estado hover (cursor sobre el botón) */
         #scrollToTopButton:hover {
-            background-color: #b4cbe5;
+            background-color: #22451b;
         }
 
         #buscador {
@@ -275,7 +274,7 @@
             border-bottom: 1px solid #000;
             text-align: right;
             outline: none;
-            background-color: #1D1D1B;
+            /*background-color: #1D1D1B;*/
         }
 
         #buscador:focus {
@@ -307,7 +306,6 @@
         <img src="backtop.png" alt="" id="scrollToTopButton" onclick="scrollToTop()">
 
     </div>
-
 
     <script>
         // Función para mostrar todos los proyectos al cargar la página
@@ -875,12 +873,12 @@
                         <div >
                             <img src="git.png" alt="Avatar" style="width:150px;height:150px;">
                         </div>
-                        <h1>${item.Nombre}</h1>
+                        <h2>${item.Nombre}</h2>
                         <p>${item.Slogan}</p>
-                        <button class="girar-button" onclick="girarTarjeta(this)">Girar</button>
+                        <button class="girar-button" onclick="girarTarjeta(this)">+ Detalles</button>
                     </div>
                     <div class="flip-card-back ${item.Categoria}">
-                        <h1>${item.Nombre}</h1>
+                        <h2>${item.Nombre}</h1>
                         <p>${item.Descripcion}</p>
                         <ul>
                             ${item.Integrantes.map(function (integrante) {
@@ -892,7 +890,7 @@
                     }).join('')}
                         </ul>
                         <p>Categoria: ${item.Categoria}</p>
-                        <button class="girar-button" onclick="girarTarjeta(this)">Girar</button>
+                        <button class="girar-button" onclick="girarTarjeta(this)">Volver</button>
                     </div>
                 </div>
             `
@@ -905,8 +903,6 @@
                     // console.log(boton.getElementsByClassName(categoria))
                     if (boton.getElementsByClassName(categoria) != categoria) {
                         boton.className = 'button-55'
-
-                        //  console.log(boton)
                     }
                 });
 
@@ -927,8 +923,6 @@
             botones.forEach(function (boton) {
 
                 boton.className = 'button-55'
-
-                //console.log(boton)
             });
             var botonSeleccionado = document.getElementById("Todos");
             if (botonSeleccionado) {
@@ -947,12 +941,12 @@
                             <div >
                                 <img src="git.png" alt="Avatar" style="width:150px;height:150px;">
                             </div>
-                        <h1>${item.Nombre}</h1>
+                        <h2>${item.Nombre}</h1>
                         <p>${item.Slogan}</p>
-                        <button class="girar-button" onclick="girarTarjeta(this)">Girar</button>
+                        <button class="girar-button" onclick="girarTarjeta(this)">+ Detalles</button>
                         </div>
                         <div class="flip-card-back .flip-card ${item.Categoria}">
-                                <h1>${item.Nombre}</h1>
+                                <h2>${item.Nombre}</h1>
                                 <p>${item.Descripcion}</p>
                                 <ul>
                                     ${item.Integrantes.map(function (integrante) {
@@ -964,7 +958,7 @@
                 }).join('')}
                                 </ul>
                                 <p>Categoria: ${item.Categoria}</p>
-                                <button class="girar-button" onclick="girarTarjeta(this)">Girar</button>
+                                <button class="girar-button" onclick="girarTarjeta(this)">Volver</button>
                         </div>
                     </div>
                 `
@@ -1001,27 +995,28 @@
                     card.classList.add("flip-card");
                     card.innerHTML = `
                     <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <div class=${item.Categoria}>
+                        <div class="flip-card-front ${item.Categoria}">
+                            <div>
                                 <img src="git.png" alt="Avatar" style="width:150px;height:150px;">
                             </div>
-                        <h1>${item.Nombre}</h1>
+                        <h2>${item.Nombre}</h1>
                         <p>${item.Slogan}</p>
-                        
+                        <button class="girar-button" onclick="girarTarjeta(this)">+ Detalles</button>
                         </div>
                         <div class="flip-card-back ${item.Categoria}">
-                        <h1>${item.Nombre}</h1>
-                        <p>${item.Descripcion}</p>
-                        <ul>
-                            ${item.Integrantes.map(function (integrante) {
-                        if (integrante !== null) {
-                            return `<li>${integrante}, </li>`;
-                        } else {
-                            return ''; // No mostrar integrantes null
-                        }
-                    }).join('')}
-                        </ul>
-                        <p>Categoria: ${item.Categoria}</p>
+                            <h2>${item.Nombre}</h1>
+                            <p>${item.Descripcion}</p>
+                            <ul>
+                                ${item.Integrantes.map(function (integrante) {
+                                    if (integrante !== null) {
+                                        return `<li>${integrante}, </li>`;
+                                    } else {
+                                        return ''; // No mostrar integrantes null
+                                    }
+                                }).join('')}
+                            </ul>
+                            <p>Categoria: ${item.Categoria}</p>
+                            <button class="girar-button" onclick="girarTarjeta(this)">Volver</button>
                         </div>
                     </div>
                 `
