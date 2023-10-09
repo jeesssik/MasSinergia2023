@@ -965,11 +965,16 @@
             });
         }
 
+        //buscar con el input
         const buscador = document.getElementById('buscador');
 
         buscador.addEventListener('input', function () {
             const terminoBusqueda = buscador.value.trim().toLowerCase();
             filtrarProyectos(terminoBusqueda);
+             // Verificar si se presionó la tecla "Enter" (código de tecla 13)
+             buscador.addEventListener('blur', function () {
+    buscador.value = ''; // Borrar el contenido del input cuando pierde el foco
+});
         });
 
         function filtrarProyectos(termino) {
