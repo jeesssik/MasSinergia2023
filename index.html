@@ -3926,7 +3926,7 @@
                 <div class="flip-card-inner ${categoria}">
                     <div class="flip-card-front ">
                         <div >
-                            <img src="git.png" alt="Avatar" style="width:150px;height:150px;">
+                            <img src="${item.Id}.png" alt="Avatar" style="width:150px;height:150px;">
                         </div>
                         <h2>${item.Nombre}</h2>
                         <p>${item.Slogan.slice(0, 80)}</p>
@@ -3997,7 +3997,7 @@
                 <div class="flip-card-inner ${item.Categoria}">
                         <div class="flip-card-front">
                             <div >
-                                <img src="git.png" alt="Avatar" style="width:150px;height:150px;">
+                                <img src="${item.Id}.png" alt="Avatar" style="width:150px;height:150px;">
                             </div>
                         <h3>${item.Nombre}</h3>
                         <p>${item.Slogan.slice(0, 80)}</p>
@@ -4086,11 +4086,12 @@
         proyectosFiltrados.forEach(function (item) {
           var card = document.createElement("div");
           card.classList.add("flip-card");
+          console.log(item.Id)
           card.innerHTML = `
                     <div class="flip-card-inner">
                         <div class="flip-card-front ${item.Categoria}">
                             <div>
-                                <img src="git.png" alt="Avatar" style="width:150px;height:150px;">
+                                <img src="${item.Id}.png" alt="Avatar" style="width:150px;height:150px;">
                             </div>
                         <h3>${item.Nombre}</h3>
                         <p>${item.Slogan.slice(0, 80)}</p>
