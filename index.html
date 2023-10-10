@@ -3923,13 +3923,12 @@ h3{
                             <img src="git.png" alt="Avatar" style="width:150px;height:150px;">
                         </div>
                         <h2>${item.Nombre}</h2>
-                        <p>${item.Slogan}</p>
+                        <p>${item.Slogan.slice(0,80)}</p>
                         <button class="girar-button" onclick="girarTarjeta(this)">+ Detalles</button>
                         </div>
                     <div class="flip-card-back ${item.Categoria}">
                         <h2>${item.Nombre}</h1>
-                        <p>${truncateDescription(item.Descripcion, 10)}</p>
-                         <button class="leer-mas-button" onclick="mostrarDescripcionCompleta('${item.Descripcion}')">Leer más</button>
+                          ${truncateDescription(item.Descripcion, 10, item)}
                        </p>      
                        <br><br>
                        <p> Integrantes:  ${item.Integrantes}</p> 
@@ -3997,13 +3996,13 @@ h3{
                                 <img src="git.png" alt="Avatar" style="width:150px;height:150px;">
                             </div>
                         <h3>${item.Nombre}</h3>
-                        <p>${truncateDescription(item.Slogan, 10)}</p>
+                        <p>${item.Slogan.slice(0,80)}</p>
                         <button class="girar-button" onclick="girarTarjeta(this)">+ Detalles</button>
                         </div>
                         <div class="flip-card-back .flip-card ${item.Categoria}">
                                 <h2>${item.Nombre}</h1>
-                                    <p>${truncateDescription(item.Descripcion, 10)}</p>
-                                    <button class="leer-mas-button" onclick="mostrarDescripcionCompleta('${item.Descripcion}')">Leer más</button>
+                                    ${truncateDescription(item.Descripcion, 10, item)}
+                                    
                                     <p> Integrantes:  ${item.Integrantes}</p>
                                 <p>Categoria: ${item.Categoria}</p>
                                 <button class="girar-button" onclick="girarTarjeta(this)">Volver</button>
@@ -4015,15 +4014,19 @@ h3{
     }
 
     //// truncar descripciones
-    function truncateDescription(description, wordCount) {
+    function truncateDescription(description, wordCount, item) {
       if(description.length<1000){
       const words = description.split(' ');
       if (words.length <= wordCount) {
         return description;
       }
-      const truncatedWords = words.slice(0, wordCount);
-      //console.log(truncatedWords)
-      return truncatedWords.join(' ') + '...';
+      let truncatedWords = words.slice(0, wordCount);
+      console.log(truncatedWords)
+      truncatedWords= truncatedWords.join(' ');
+  
+     return `<p>${truncatedWords}  ...</p>
+     <button class="leer-mas-button" onclick="mostrarDescripcionCompleta('${item}')">Leer más</button>
+    `;
     }else{
       return description;
     }
