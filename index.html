@@ -49,6 +49,10 @@
       cursor: pointer;
       padding: 10px 20px;
     }
+    #inte{
+      padding: 5px 20px;
+
+    }
 
     .navbar {
       display: flex;
@@ -3936,7 +3940,7 @@
                         <h2>${item.Nombre}</h1>
                         ${truncateDescription(item.Descripcion, 10, item)}
 
-                       <p><b>Integrantes:</b>  ${item.Integrantes}</p> 
+                       <p id='inte'><b>Integrantes:</b>  ${item.Integrantes}</p> 
                         <p><b>Categoria</b>: ${item.Categoria}</p>
                         <button class="girar-button" onclick="girarTarjeta(this)">Volver</button>
                     </div>
@@ -4006,7 +4010,7 @@
                         <div class="flip-card-back .flip-card ${item.Categoria}">
                                 <h2>${item.Nombre}</h2>
                                    ${truncateDescription(item.Descripcion, 10, item)}
-                                    <p><b>Integrantes:</b>  ${item.Integrantes}</p>
+                                    <p id='inte'><b>Integrantes:</b>  ${item.Integrantes}</p>
                                 <p><b>Categoria:</b> ${item.Categoria}</p>
                                 <button class="girar-button" onclick="girarTarjeta(this)">Volver</button>
                         </div>
@@ -4032,7 +4036,7 @@
         `;
         //   return `<p>${truncatedWords}  ...</p><button class="leer-mas-button" onclick="mostrarDescripcionCompleta('${description}')">Leer más</button>
       } else {
-        return `<pid="descCard"><b>Descripción:</b> ${description}</p><br>`;
+        return `<p id="descCard"><b>Descripción:</b> ${description}</p><br>`;
       }
     }
 
@@ -4064,6 +4068,13 @@
     const buscador = document.getElementById('buscador');
 
     buscador.addEventListener('input', function () {
+      
+    var botones = document.querySelectorAll(".botones-categorias button");
+      botones.forEach(function (boton) {
+
+        boton.className = 'button-55'
+      });
+
       const terminoBusqueda = buscador.value.trim().toLowerCase();
       filtrarProyectos(terminoBusqueda);
       buscador.addEventListener('blur', function () {
@@ -4101,7 +4112,7 @@
                             <h3>${item.Nombre}</h3>
                               ${truncateDescription(item.Descripcion, 10, item)}
                             
-                              <p><b>Integrantes:</b>  ${item.Integrantes}</p>
+                              <p id='inte'><b>Integrantes:</b>  ${item.Integrantes}</p>
                             
                             <p><b>Categoria:</b> ${item.Categoria}</p>
                             <button class="girar-button" onclick="girarTarjeta(this)">Volver</button>
