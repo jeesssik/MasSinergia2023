@@ -26,9 +26,11 @@
     header {
       overflow: hidden;
     }
-h3{
-  margin-top:0;
-}
+
+    h3 {
+      margin-top: 0;
+    }
+
     #logo-image {
       width: 100%;
       height: auto;
@@ -41,6 +43,11 @@ h3{
       flex-wrap: wrap;
       justify-content: center;
       min-height: 100vh;
+    }
+
+    #descCard {
+      cursor: pointer;
+      padding: 10px 20px;
     }
 
     .navbar {
@@ -116,11 +123,10 @@ h3{
     .flip-card-inner {
       position: relative;
       width: 100%;
-      height: 320px;
+      height: 335px;
       text-align: center;
       transition: transform 0.8s;
       transform-style: preserve-3d;
-      /* border: 5px solid rgba(0, 0, 0, 0.075);*/
       border-radius: 5%;
     }
 
@@ -3923,17 +3929,15 @@ h3{
                             <img src="git.png" alt="Avatar" style="width:150px;height:150px;">
                         </div>
                         <h2>${item.Nombre}</h2>
-                        <p>${item.Slogan.slice(0,80)}</p>
+                        <p>${item.Slogan.slice(0, 80)}</p>
                         <button class="girar-button" onclick="girarTarjeta(this)">+ Detalles</button>
                         </div>
                     <div class="flip-card-back ${item.Categoria}">
                         <h2>${item.Nombre}</h1>
-                          ${truncateDescription(item.Descripcion, 10, item)}
-                       </p>      
-                       <br><br>
-                       <p> Integrantes:  ${item.Integrantes}</p> 
-                       <br>  
-                        <p>Categoria: ${item.Categoria}</p>
+                        ${truncateDescription(item.Descripcion, 10, item)}
+
+                       <p><b>Integrantes:</b>  ${item.Integrantes}</p> 
+                        <p><b>Categoria</b>: ${item.Categoria}</p>
                         <button class="girar-button" onclick="girarTarjeta(this)">Volver</button>
                     </div>
                 </div>
@@ -3996,15 +4000,14 @@ h3{
                                 <img src="git.png" alt="Avatar" style="width:150px;height:150px;">
                             </div>
                         <h3>${item.Nombre}</h3>
-                        <p>${item.Slogan.slice(0,80)}</p>
+                        <p>${item.Slogan.slice(0, 80)}</p>
                         <button class="girar-button" onclick="girarTarjeta(this)">+ Detalles</button>
                         </div>
                         <div class="flip-card-back .flip-card ${item.Categoria}">
-                                <h2>${item.Nombre}</h1>
-                                    ${truncateDescription(item.Descripcion, 10, item)}
-                                    
-                                    <p> Integrantes:  ${item.Integrantes}</p>
-                                <p>Categoria: ${item.Categoria}</p>
+                                <h2>${item.Nombre}</h2>
+                                   ${truncateDescription(item.Descripcion, 10, item)}
+                                    <p><b>Integrantes:</b>  ${item.Integrantes}</p>
+                                <p><b>Categoria:</b> ${item.Categoria}</p>
                                 <button class="girar-button" onclick="girarTarjeta(this)">Volver</button>
                         </div>
                     </div>
@@ -4015,32 +4018,30 @@ h3{
 
     //// truncar descripciones
     function truncateDescription(description, wordCount, item) {
-      if(description.length<1000){
-      const words = description.split(' ');
-      if (words.length <= wordCount) {
-        return description;
+      if (description.length > 100) {
+        const words = description.split(' ');
+        if (words.length <= wordCount) {
+          return `<pid="descCard"><b>Descripción:</b> ${description}</p><br>`;
+        }
+        let truncatedWords = words.slice(0, wordCount);
+        console.log(truncatedWords)
+        truncatedWords = truncatedWords.join(' ');
+
+        return `<p onclick="mostrarDescripcionCompleta('${description}')" title="leer +" id="descCard"><b>Descripción:</b> ${truncatedWords} ...</p>
+        
+        `;
+        //   return `<p>${truncatedWords}  ...</p><button class="leer-mas-button" onclick="mostrarDescripcionCompleta('${description}')">Leer más</button>
+      } else {
+        return `<pid="descCard"><b>Descripción:</b> ${description}</p><br>`;
       }
-      let truncatedWords = words.slice(0, wordCount);
-      console.log(truncatedWords)
-      truncatedWords= truncatedWords.join(' ');
-  
-     return `<p>${truncatedWords}  ...</p>
-     <button class="leer-mas-button" onclick="mostrarDescripcionCompleta('${item}')">Leer más</button>
-    `;
-    }else{
-      return description;
-    }
     }
 
     /// modal de descripción completa
     // Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-var modalParagraph = document.getElementById('modalParagraph');
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+    var modal = document.getElementById("myModal");
+    var btn = document.getElementById("myBtn");
+    var modalParagraph = document.getElementById('modalParagraph');
+    var span = document.getElementsByClassName("close")[0];
 
     function mostrarDescripcionCompleta(descripcion) {
       modal.style.display = "block";
@@ -4048,16 +4049,16 @@ var span = document.getElementsByClassName("close")[0];
 
 
     }
-    span.onclick = function() {
-  modal.style.display = "none";
-}
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
+    span.onclick = function () {
+      modal.style.display = "none";
+    }
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
 
-/**** fin modal****/
+    /**** fin modal****/
 
     //buscar con el input
     const buscador = document.getElementById('buscador');
@@ -4072,14 +4073,12 @@ window.onclick = function(event) {
 
     function filtrarProyectos(termino) {
       const resultadoDiv = document.getElementById('resultado');
-      resultadoDiv.innerHTML = ''; // Limpiar contenido anterior
+      resultadoDiv.innerHTML = '';
 
       const proyectosFiltrados = datos.filter(function (proyecto) {
         const titulo = proyecto.Nombre.toLowerCase();
         const descripcion = proyecto.Descripcion.toLowerCase();
-        //// a chequear
         const integrantes = proyecto.Integrantes.toLowerCase();
-        // a chequear lo de integrantes
         return titulo.includes(termino) || descripcion.includes(termino) || integrantes.includes(termino);
       });
 
@@ -4093,18 +4092,17 @@ window.onclick = function(event) {
                             <div>
                                 <img src="git.png" alt="Avatar" style="width:150px;height:150px;">
                             </div>
-                        <h2>${item.Nombre}</h1>
+                        <h3>${item.Nombre}</h3>
                         <p>${item.Slogan}</p>
                         <button class="girar-button" onclick="girarTarjeta(this)">+ Detalles</button>
                         </div>
                         <div class="flip-card-back ${item.Categoria}">
-                            <h2>${item.Nombre}</h1>
-                                <p>${truncateDescription(item.Descripcion, 10)}</p>
-                                <button class="leer-mas-button" onclick="mostrarDescripcionCompleta('${item.Descripcion}')">Leer más</button>
+                            <h3>${item.Nombre}</h3>
+                              ${truncateDescription(item.Descripcion, 10, item)}
                             
-                              <p> Integrantes:  ${item.Integrantes}</p>
+                              <p><b>Integrantes:</b>  ${item.Integrantes}</p>
                             
-                            <p>Categoria: ${item.Categoria}</p>
+                            <p><b>Categoria:</b> ${item.Categoria}</p>
                             <button class="girar-button" onclick="girarTarjeta(this)">Volver</button>
                         </div>
                     </div>
