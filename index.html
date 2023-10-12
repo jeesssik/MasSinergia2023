@@ -34,8 +34,8 @@
 
       h3 {
         margin-top: 0;
+        margin-bottom: 0em;
         width:100%;
-        margin-bottom: -2em;
       }
 
       #logo-image {
@@ -54,7 +54,8 @@
 
       #descCard {
         cursor: pointer;
-        padding: 10px 20px;
+        /*padding: 10px 20px;*/
+        padding: 0px 10px;
       }
       #inte {
         padding: 5px 20px;
@@ -132,7 +133,7 @@
       .flip-card-inner {
         position: relative;
         width: 100%;
-        height: 335px;
+        height: 340px;
         text-align: center;
         transition: transform 0.8s;
         transform-style: preserve-3d;
@@ -265,8 +266,10 @@
       .flip-card h2,
       .flip-card p {
         margin: 0;
-        margin-bottom: 2em;
+        margin-bottom: 1em;
       }
+
+     
 
       /* Estilos para el botón "Girar" */
       .girar-button {
@@ -4446,19 +4449,17 @@
                 <div class="flip-card-inner ${categoria}">
                     <div class="flip-card-front ">
                         <div >
-                            <img src="${
-                              item.Id
-                            }.png" alt="Avatar">
+                            <img src="https://campus.ort.edu.ar/static/archivos/anim/1663176/2012790/${item.Id}.png"  alt="Avatar">
                         </div>
                         <h2>${item.Nombre}</h2>
                         <p>${item.Slogan.slice(0, 80)}</p>
                         <button class="girar-button" onclick="girarTarjeta(this)">+ Detalles</button>
                         </div>
                     <div class="flip-card-back ${item.Categoria}">
-                        <h2>${item.Nombre}</h1>
+                        <h3>${item.Nombre}</h3>
                         ${truncateDescription(item.Descripcion, 10, item)}
 
-                       <p id='inte'><b>Integrantes:</b>  ${
+                       <p ><b>Integrantes:</b>  ${
                          item.Integrantes
                        }</p> 
                         <p><b>Categoria</b>: ${item.Categoria}</p>
@@ -4471,8 +4472,6 @@
 
           // Cambiar la clase "activo" del botón seleccionado
           var botones = document.querySelectorAll(".botones-categorias button");
-          //botones.forEach(function (boton) {
-          console.log(categoria);
           if (categoria == "Servicios a la Sociedad") {
             id = "Sociedad";
           }
@@ -4490,7 +4489,6 @@
             boton.classList.remove("button-" + boton.id);
             boton.classList.remove("Todos");
           });
-          console.log();
           // Agrega la clase correspondiente al botón clicleado
           document.getElementById(id).classList.add("button-" + id);
         } else {
@@ -4531,13 +4529,13 @@
                         <div class="flip-card-back .flip-card ${
                           item.Categoria
                         }">
-                                <h2>${item.Nombre}</h2>
+                                <h3>${item.Nombre}</h3>
                                    ${truncateDescription(
                                      item.Descripcion,
                                      10,
                                      item
                                    )}
-                                    <p id='inte'><b>Integrantes:</b>  ${
+                                    <p ><b>Integrantes:</b>  ${
                                       item.Integrantes
                                     }</p>
                                 <p><b>Categoria:</b> ${item.Categoria}</p>
@@ -4557,7 +4555,6 @@
             return `<pid="descCard"><b>Descripción:</b> ${description}</p><br>`;
           }
           let truncatedWords = words.slice(0, wordCount);
-          console.log(truncatedWords);
           truncatedWords = truncatedWords.join(" ");
 
           return `<p onclick="mostrarDescripcionCompleta('${description}')" title="leer +" id="descCard"><b>Descripción:</b> ${truncatedWords} ...</p>
@@ -4626,7 +4623,6 @@
           proyectosFiltrados.forEach(function (item) {
             var card = document.createElement("div");
             card.classList.add("flip-card");
-            console.log(item.Id);
             card.innerHTML = `
                     <div class="flip-card-inner">
                         <div class="flip-card-front ${item.Categoria}">
@@ -4643,7 +4639,7 @@
                             <h3>${item.Nombre}</h3>
                               ${truncateDescription(item.Descripcion, 10, item)}
                             
-                              <p id='inte'><b>Integrantes:</b>  ${
+                              <p ><b>Integrantes:</b>  ${
                                 item.Integrantes
                               }</p>
                             
