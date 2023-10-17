@@ -411,6 +411,22 @@
         text-decoration: none;
         cursor: pointer;
       }
+
+      .syn-image {
+        position: absolute;
+        bottom: 9px;
+        left: 7px;
+        width: 34px; /* Ajusta el tamaño según tus necesidades */
+        height: 31px; /* Ajusta el tamaño según tus necesidades */
+        background-image: url('logo-default.png'); /* Ruta de la imagen de sinergia */
+        background-size: cover;
+        background-position: center;
+        
+      }
+      
+
+
+
     </style>
   </head>
 
@@ -3725,6 +3741,7 @@
                         <h3>${item.Nombre}</h3>
                         <p>${item.Slogan.slice(0, 80)}</p>
                         <button class="girar-button" onclick="girarTarjeta(this)">+ Detalles</button>
+                        ${Sinergizado(item)}
                         </div>
                     <div class="flip-card-back ${item.Categoria}">
                         <h3>${item.Nombre}</h3>
@@ -3793,6 +3810,7 @@
                         <h3>${item.Nombre}</h3>
                         <p>${item.Slogan.slice(0, 80)}</p>
                         <button class="girar-button" onclick="girarTarjeta(this)">+ Detalles</button>
+                        ${Sinergizado(item)}
                         </div>
                         <div class="flip-card-back .flip-card ${
                           item.Categoria
@@ -3809,6 +3827,7 @@
                               
                                 <button class="girar-button" onclick="girarTarjeta(this)">Volver</button>
                         </div>
+                        
                     </div>
                 `;
           resultadoDiv.appendChild(card);
@@ -3856,6 +3875,15 @@
 
       /**** fin modal****/
 
+      // Mostrar ico sinergizados
+      function Sinergizado(item){
+        if (item.Sinergizado == "TRUE") {
+                          return `<div class="syn-image" title="Sinergizado"></div>`;
+        }else{
+          return "";  
+        }
+                        
+      }
       //buscar con el input
       const buscador = document.getElementById("buscador");
 
@@ -3900,6 +3928,7 @@
                         <h3>${item.Nombre}</h3>
                         <p>${item.Slogan.slice(0, 80)}</p>
                         <button class="girar-button" onclick="girarTarjeta(this)">+ Detalles</button>
+                        ${Sinergizado(item)}
                         </div>
                         <div class="flip-card-back ${item.Categoria}">
                             <h3>${item.Nombre}</h3>
