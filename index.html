@@ -3839,11 +3839,19 @@ background: linear-gradient(0deg, rgba(241,201,224,1) 0%, rgba(176,190,232,1) 10
 
           var botones = document.querySelectorAll(".botones-categorias button");
           
-          id="Sinergizado";
+          
+            id = "SinergizadosC";
+          
 
           botones.forEach(function (boton) {
-            boton.classList.add("button-55");
+            boton.classList.remove("Todos")
+            boton.classList.remove("button-Negocios")
+            boton.classList.remove("button-Sociedad")
+            boton.classList.remove("button-Salud")
+            boton.classList.remove("button-Arte")
+            
             if(boton.id == "Sinergizado"){
+             
               boton.classList.add("SinergizadoC");
             }
           });
